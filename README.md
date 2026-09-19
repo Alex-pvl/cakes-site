@@ -1,24 +1,22 @@
 # Десерты ручной работы
 
-Статический одностраничный сайт кондитерской, свёрстанный по макету Figma. Чистый HTML/CSS, без сборки и зависимостей — можно открыть `index.html` напрямую или задеплоить на GitHub Pages.
+Статический одностраничный сайт кондитерской, свёрстанный по макету Figma. Чистый HTML/CSS, без сборки и зависимостей.
 
 ## Деплой на GitHub Pages
 
+Деплой делает workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml): на каждый пуш в `main` он публикует `index.html`, `style.css` и `assets/`. Запустить вручную можно во вкладке **Actions → Deploy to GitHub Pages → Run workflow**.
+
+Первая настройка:
+
 ```bash
 gh repo create cakes-site --public --source=. --remote=origin --push
+gh api -X POST repos/{owner}/{repo}/pages -f build_type=workflow
+gh workflow run deploy.yml
 ```
 
-Затем в настройках репозитория: **Settings → Pages → Source: Deploy from a branch → Branch: main / (root)**.
+Вторую команду можно заменить настройкой в интерфейсе: **Settings → Pages → Source: GitHub Actions**.
 
-Либо вручную, без `gh`:
-
-```bash
-git remote add origin https://github.com/<username>/<repo>.git
-git branch -M main
-git push -u origin main
-```
-
-Сайт появится на `https://<username>.github.io/<repo>/`.
+Сайт появится на `https://<username>.github.io/cakes-site/`.
 
 ## Локальный просмотр
 
