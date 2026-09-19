@@ -7,7 +7,7 @@
 <meta name="description" content="Домашняя кондитерская @vvladsaa: торты, чизкейки, десерты ручной работы на заказ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,47 +15,45 @@
 <header class="site-header">
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
-      <span>трайфл&nbsp;&nbsp;·&nbsp;&nbsp;медовик&nbsp;&nbsp;·&nbsp;&nbsp;бенто-торт&nbsp;&nbsp;·&nbsp;&nbsp;чизкейк&nbsp;&nbsp;·&nbsp;&nbsp;брауни&nbsp;&nbsp;·&nbsp;&nbsp;рулет&nbsp;&nbsp;·&nbsp;&nbsp;моти&nbsp;&nbsp;·&nbsp;&nbsp;тирамису&nbsp;&nbsp;·&nbsp;&nbsp;вафли&nbsp;&nbsp;·&nbsp;&nbsp;наполеон&nbsp;&nbsp;·&nbsp;&nbsp;бисквит&nbsp;&nbsp;·&nbsp;&nbsp;печенье&nbsp;&nbsp;·&nbsp;&nbsp;эклер&nbsp;&nbsp;·&nbsp;&nbsp;тарт&nbsp;&nbsp;·&nbsp;&nbsp;</span>
-      <span>трайфл&nbsp;&nbsp;·&nbsp;&nbsp;медовик&nbsp;&nbsp;·&nbsp;&nbsp;бенто-торт&nbsp;&nbsp;·&nbsp;&nbsp;чизкейк&nbsp;&nbsp;·&nbsp;&nbsp;брауни&nbsp;&nbsp;·&nbsp;&nbsp;рулет&nbsp;&nbsp;·&nbsp;&nbsp;моти&nbsp;&nbsp;·&nbsp;&nbsp;тирамису&nbsp;&nbsp;·&nbsp;&nbsp;вафли&nbsp;&nbsp;·&nbsp;&nbsp;наполеон&nbsp;&nbsp;·&nbsp;&nbsp;бисквит&nbsp;&nbsp;·&nbsp;&nbsp;печенье&nbsp;&nbsp;·&nbsp;&nbsp;эклер&nbsp;&nbsp;·&nbsp;&nbsp;тарт&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>трайфл</span><span>медовик</span><span>бенто-торт</span><span>чизкейк</span><span>брауни</span><span>рулет</span><span>моти</span><span>тирамису</span><span>вафли</span><span>наполеон</span><span>бисквит</span><span>печенье</span><span>эклер</span><span>тарт</span>
+      <span>трайфл</span><span>медовик</span><span>бенто-торт</span><span>чизкейк</span><span>брауни</span><span>рулет</span><span>моти</span><span>тирамису</span><span>вафли</span><span>наполеон</span><span>бисквит</span><span>печенье</span><span>эклер</span><span>тарт</span>
     </div>
   </div>
-  <h1 class="site-title">Десерты ручной работы</h1>
+  <h1 class="site-title"><span>Десерты ручной работы</span></h1>
 </header>
 
 <main>
-
   <div class="hero">
-    <img src="assets/cake-dark.jpg" alt="Шоколадный торт с белым и тёмным шоколадом" loading="eager">
+    <img src="assets/cake-dark.jpg" alt="Шоколадный торт" width="1600" height="962">
   </div>
 
-  <section class="intro">
-    <p>Домашняя кондитерская <strong>@vvladsaa</strong> реализует индивидуальный подход к каждому заказу. Мы обращаем внимание на то, где и когда будет подан десерт, кому и по какому поводу.</p>
+  <section id="about" class="intro">
+    <p>Домашняя кондитерская @vvladsaa реализует индивидуальный подход к каждому заказу. Мы обращаем внимание на то, где и когда будет подан десерт, кому и по какому поводу.</p>
     <p>Именно поэтому на 100&nbsp;грамм нам удаётся вместить<br>больше смысла, любви и заботы, чем калорий.</p>
   </section>
 
   <section id="ingredients" class="feature">
-    <img src="assets/berries.jpg" alt="Миска свежих ягод: малина, ежевика, черника" loading="lazy">
+    <img src="assets/berries.jpg" alt="Миска свежих ягод: малина, ежевика, черника" width="700" height="700" loading="lazy">
     <p>Кондитерская берётся за десерты любой сложности. От небольшого чизкейка до свадебных тортов. Наш опыт позволяет создать десерт точно ко времени заказа&nbsp;— карамель всегда будет густой, брауни сохранит текстуру, а ягоды даже в зиму дадут вам прочувствовать вкус лета.</p>
   </section>
 
   <section id="order" class="contact">
-    <div class="contact__spoon" role="img" aria-label="Деревянная ложка"></div>
-    <div class="contact__text">
-      <p>Для вопросов и предложений, напишите напрямую на telegram аккаунт&nbsp;<a href="https://t.me/vvladsaa" target="_blank" rel="noopener">@vvladsaa</a></p>
-      <p>Найти работы и жизнь автора можно по <a href="https://t.me/vvladsaa" target="_blank" rel="noopener"><em>ссылке</em></a></p>
-    </div>
+    <p>Для вопросов и предложений, напишите напрямую на telegram аккаунт <a href="https://t.me/vvladsaa" target="_blank" rel="noopener">@vvladsaa</a><br>
+    Найти работы и жизнь автора можно по <a href="https://t.me/vvladsaa" target="_blank" rel="noopener"><em>ссылке</em></a></p>
+    <img class="contact__spoon" src="assets/spoon.jpg" alt="" width="900" height="187" loading="lazy">
   </section>
-
 </main>
 
 <footer class="site-footer">
-  <img src="assets/cake-white.jpg" alt="" class="site-footer__bg" loading="lazy">
-  <nav class="footer__nav" id="about">
-    <a href="#about">О кондитерской</a>
-    <a href="#ingredients">Ингредиенты</a>
-    <a href="#order">Заказ десерта</a>
-  </nav>
-  <p class="footer__copy">© vvladsaa</p>
+  <img src="assets/cake-white.jpg" alt="Медовый торт со сливочным кремом" class="site-footer__bg" width="1600" height="1046" loading="lazy">
+  <div class="site-footer__side">
+    <nav class="footer__nav">
+      <a href="#about">О кондитерской</a>
+      <a href="#ingredients">Ингредиенты</a>
+      <a href="#order">Заказ десерта</a>
+    </nav>
+    <p class="footer__copy">© vvladsaa</p>
+  </div>
 </footer>
 
 </body>

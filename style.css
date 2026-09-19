@@ -1,37 +1,37 @@
 :root {
   --serif: "Playfair Display", Georgia, serif;
-  --ink: #111;
-  --paper: #fff;
+  --fs: clamp(17px, 1.67vw, 24px);
 }
 
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: #fff;
+  color: #000;
   font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: var(--fs);
+  line-height: 1.35;
 }
 
-a {
-  color: inherit;
-}
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; }
 
 /* ---------- Header ---------- */
 
 .site-header {
-  position: relative;
-  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 57px;
   background: #000;
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .marquee {
@@ -39,170 +39,138 @@ a {
   inset: 0;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 
 .marquee__track {
   display: flex;
+  flex-shrink: 0;
   white-space: nowrap;
-  color: rgba(255, 255, 255, 0.35);
   font-style: italic;
-  font-size: clamp(14px, 2vw, 20px);
-  animation: scroll-left 32s linear infinite;
+  color: rgba(255, 255, 255, 0.5);
+  animation: marquee 30s linear infinite;
 }
 
-@keyframes scroll-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+.marquee__track span { padding-right: 2.2em; }
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
 }
 
 .site-title {
   position: relative;
-  z-index: 1;
-  width: 100%;
   margin: 0;
-  text-align: center;
-  font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(15px, 2vw, 20px);
+  font-size: var(--fs);
   color: #fff;
-  letter-spacing: 0.02em;
-  padding: 0 20%;
-  background: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  white-space: nowrap;
+}
+
+/* black plate with soft edges, hides the marquee behind the title */
+.site-title span {
+  display: block;
+  padding: 0 90px;
+  line-height: 57px;
+  background: linear-gradient(90deg, transparent, #000 87px, #000 calc(100% - 87px), transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .marquee__track { animation: none; }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero: cake turned upside down, as in the design ---------- */
 
 .hero img {
-  display: block;
   width: 100%;
-  height: min(70vh, 620px);
+  aspect-ratio: 1460 / 773;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: top;
+  transform: rotate(180deg);
 }
 
-/* ---------- Shared section layout ---------- */
-
-main section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 32px;
-}
+/* ---------- Sections ---------- */
 
 .intro {
+  max-width: 1160px;
+  margin: -10vw auto 0;
+  padding: 0 24px;
+  position: relative;
   text-align: center;
-  font-style: italic;
-  font-size: clamp(17px, 1.6vw, 22px);
 }
 
-.intro p {
-  max-width: 760px;
-  margin: 0 auto 1.2em;
-}
+.intro p { margin: 0; }
 
 .feature {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 752px);
   align-items: center;
-  gap: 64px;
-  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 130px 56px 0;
 }
 
-.feature img {
-  flex: 1 1 340px;
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.feature p {
-  flex: 1 1 380px;
-  font-size: 1.05em;
-}
+.feature p { margin: 0; }
 
 .contact {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  flex-wrap: wrap;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 70px 24px 0;
+}
+
+.contact p {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-right: 8%;
 }
 
 .contact__spoon {
-  flex: 0 0 90px;
-  width: 90px;
-  height: 320px;
-  background-image: url("assets/spoons.jpg");
-  background-size: 480% 100%;
-  background-position: 0% center;
-  border-radius: 12px;
-}
-
-.contact__text {
-  flex: 1 1 420px;
-}
-
-.contact__text p {
-  margin: 0.6em 0;
-}
-
-.contact a {
-  text-decoration: underline;
+  position: relative;
+  z-index: 1;
+  width: min(525px, 80%);
+  margin: 70px auto 0;
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
   position: relative;
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 48px 64px;
-  overflow: hidden;
-  color: var(--ink);
+  margin-top: -40px;
 }
 
-.site-footer__bg {
+.site-footer__bg { width: 100%; }
+
+.site-footer__side {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  z-index: -1;
+  right: 6.5%;
+  bottom: 6%;
+  width: 13%;
+  min-width: 170px;
+  text-align: center;
 }
 
 .footer__nav {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 14px;
   font-style: italic;
-  font-size: clamp(16px, 1.8vw, 22px);
-}
-
-.footer__nav a {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  line-height: 2.9;
 }
 
 .footer__copy {
-  font-size: 14px;
-  margin: 0;
+  margin: 0.8em 0 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Mobile ---------- */
 
-@media (max-width: 640px) {
-  main section { padding: 56px 20px; }
-  .feature, .contact { gap: 32px; }
-  .contact__spoon { display: none; }
-  .site-footer { align-items: center; text-align: center; padding: 32px 24px; }
-  .footer__nav { align-items: center; }
+@media (max-width: 760px) {
+  .site-title span { padding: 0 40px; background: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+  .feature { grid-template-columns: 1fr; gap: 28px; padding: 64px 20px 0; }
+  .feature img { max-width: 420px; margin: 0 auto; }
+  .contact { padding-top: 56px; }
+  .contact p { padding-right: 0; }
+  .contact__spoon { margin-top: 40px; }
+  .site-footer { margin-top: 24px; }
+  .site-footer__side { position: static; width: auto; padding: 16px 0 32px; }
+  .footer__nav { line-height: 2.2; }
 }
