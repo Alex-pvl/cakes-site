@@ -165,12 +165,14 @@ a { color: inherit; }
 
 @media (max-width: 760px) {
   .site-title span { padding: 0 40px; background: linear-gradient(90deg, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
-  .feature { grid-template-columns: 1fr; gap: 28px; padding: 64px 20px 0; }
-  .feature img { max-width: 420px; margin: 0 auto; }
+  .feature { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 64px 20px 0; }
+  .feature img { width: 100%; max-width: 420px; margin: 0 auto; }
   .contact { padding-top: 56px; }
   .contact p { padding-right: 0; }
   .contact__spoon { margin-top: 40px; }
-  .site-footer { margin-top: 24px; }
-  .site-footer__side { position: static; width: auto; padding: 16px 0 32px; }
+  /* the photo is cut off at the bottom, so on mobile it closes the page instead of sitting above the nav */
+  .site-footer { display: flex; flex-direction: column-reverse; margin-top: 48px; overflow: hidden; }
+  .site-footer__bg { width: 125%; max-width: none; margin-top: -8%; }
+  .site-footer__side { position: relative; z-index: 1; right: auto; bottom: auto; width: auto; }
   .footer__nav { line-height: 2.2; }
 }
